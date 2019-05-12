@@ -48,13 +48,23 @@ var startGame = function() {
     poop[2].value = getRandom(1, 12);
     poop[3].value = getRandom(1, 12);
 
+   // ?? display the poop pictures on the page dynamically (they are currently in the html, but I would like to make them appear)
+
+   $("#poop1").html(poop[0].image);
+
+   //put on html
+
+   $("#wins").html("Wins: " + wins);
+   $("#targetNumber").html("Target: " + target);
+
+
 
 
 
 
 
 }
-startGame()
+
 // This is only a test.
 console.log("Target: " + target);
 console.log(poop[0].value);
