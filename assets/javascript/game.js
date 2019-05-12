@@ -39,14 +39,20 @@ var getRandom = function(min, max) {
 }
 
 var startGame = function() {
-    wins = 0;
 
     target = getRandom(19, 120);
 
-    poop[0].value = getRandom(1, 12);
-    poop[1].value = getRandom(1, 12);
-    poop[2].value = getRandom(1, 12);
-    poop[3].value = getRandom(1, 12);
+
+
+    for(var i = 0; i< poop.length; i++){
+        poop[i].value = getRandom(1, 12);
+        var div = $('<div>').addClass('col-md-3 col-sm-6 poo-pic');
+        var img = $('<img>').attr('src', poop[i].image).attr('alt', "poop").attr('id', "poop"+(i+1)).attr('data-index', i).addClass("button img-thumbnail")
+
+        $(div).append(img)
+
+        $("#poop-bag").append(div)
+    }
 
    // ?? display the poop pictures on the page dynamically (they are currently in the html, but I would like to put them in with js??)
 
@@ -55,78 +61,76 @@ var startGame = function() {
    //put on html
 
    $("#wins").html("Wins: " + wins);
+   $("#losses").html("Losses: " + losses);
+
    $("#targetNumber").html("Target: " + target);
+
 }
 
-var addValues = function(poop) {
-    yourNum = yourNum + poop.value;
+var addValues = function(index) {
+    yourNum = yourNum + poop[index].value;
     $("#number").html("You: " + yourNum);
 }
-startGame()
 
-// This is only a test.
-console.log("Target: " + target);
-console.log(poop[0].value);
-console.log("Poop1: " + poop[0].value + " | Poop2: " + poop[1].value + " | Poop3: " + poop[2].value + " | Poop4: " + poop[3].value);
-console.log(getRandom(1, 12));
+// // This is only a test.
+// console.log("Target: " + target);
+// console.log(poop[0].value);
+// console.log("Poop1: " + poop[0].value + " | Poop2: " + poop[1].value + " | Poop3: " + poop[2].value + " | Poop4: " + poop[3].value);
+// console.log(getRandom(1, 12));
 
+
+ // Need to create a pause before calling start game
+
+function resetGame() {
+    $(".img-thumbnail").each(function() {
+        $(this).attr("disabled", true);
+    })
+    setTimeout(function(){ 
+        yourNum = 0;
+        $("#number").html("You: " + yourNum);
+        $("#poop-bag, .modal-body").empty();
+        $(".modal").modal("hide");  
+        $(".img-thumbnail").each(function() {
+            $(this).attr("disabled", false);
+        })
+      
+        startGame();
+    }, 2000);
+    
+    
+}
 
 
 
 // ***********Play
-startGame()
+
+
 $("document").ready(function() {
-    $(".img-thumbnail").on("click", function() {
-        addValues(poop);
+    startGame();
+   
+    $(document).on("click",".img-thumbnail", function() {
+
+        var selectedPoop = $(this).attr('data-index');
+        selectedPoop = parseInt(selectedPoop);
+
+        addValues(selectedPoop);
+
+        if (yourNum === target) {
+            wins++            
+            $("#wins").html("Wins: " + wins);
+            $(".modal-body").html("<h3>You win!</h3>")
+            $(".modal").modal("show");
+            resetGame()
+        }else if (yourNum > target) {
+            losses++
+            $("#losses").html("Losses: " + losses);
+            $(".modal-body").html("<h3>You stepped in it!</h3>");
+            $(".modal").modal("show");
+            resetGame()
+        }
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
+
 
 //var score  = yourScore + crystalValue
 
@@ -151,4 +155,3 @@ $("document").ready(function() {
 
 
 //  Lindsey - dynamically create crystals on the page.  We might create an object to hold each crystal.
-
