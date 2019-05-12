@@ -48,22 +48,21 @@ var startGame = function() {
     poop[2].value = getRandom(1, 12);
     poop[3].value = getRandom(1, 12);
 
-   // ?? display the poop pictures on the page dynamically (they are currently in the html, but I would like to make them appear)
+   // ?? display the poop pictures on the page dynamically (they are currently in the html, but I would like to put them in with js??)
 
-   $("#poop1").html(poop[0].image);
+//    $("#poop1").html(poop[0].image); -->doesn't appear to work, but images are currently in html, so it could be causing a problem?
 
    //put on html
 
    $("#wins").html("Wins: " + wins);
    $("#targetNumber").html("Target: " + target);
-
-
-
-
-
-
-
 }
+
+var addValues = function(poop) {
+    yourNum = yourNum + poop.value;
+    $("#number").html("You: " + yourNum);
+}
+startGame()
 
 // This is only a test.
 console.log("Target: " + target);
@@ -78,7 +77,7 @@ console.log(getRandom(1, 12));
 startGame()
 $("document").ready(function() {
     $(".img-thumbnail").on("click", function() {
-        alert("poop");
+        addValues(poop);
     })
 
 

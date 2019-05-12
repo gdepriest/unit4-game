@@ -12,13 +12,13 @@ h1 {
 h3 {
     font-family: 'Modak', cursive;
     font-size: 50px;
-    color: saddlebrown;
+    color: rgb(94, 44, 9);
 }
 
 h4 { 
     font-family: 'Modak', cursive;
     font-size: 45px;
-    color: saddlebrown;
+    color: rgb(94, 44, 9);
 }
 
 p {
@@ -32,6 +32,7 @@ p {
     background-color: rgba(255, 255, 255, 0.466);
     border-radius: 15px;
     padding: 10px;    
+    margin-bottom: 10px;
 }
 
 .img-thumbnail {
