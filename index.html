@@ -7,13 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Modak" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- jQuery stuff -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <title>Document</title>
+    <title>POOP!</title>
 </head>
 
 <body>
@@ -25,7 +28,22 @@
         </div>
         <div class="row">
 
-            <div class="col-md-9"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <h3 id="number">You:</h3>
+                </div>
+                <div class="row">
+                    <h3 class="targetNumber">Target: </h3>
+                </div>
+                <div class="row">
+                    <h3 class="wins">Wins: </h3>
+                </div>
+                <div class="row">
+                    <h3 class="losses">Losses: </h3>
+                </div>
+            </div>
+
+            <div class="col-md-5"></div>
 
             <div class="instructions-wrap box col-md-3">
                 <h3>Instructions</h3>
@@ -33,32 +51,22 @@
                     Dog-gone! You really stepped in it this time!
                     Collect the poop and gain points.
                     When your score matches the target score, you win!
-                    But be careful, go over the target score, and you'll be in the doo-doo.
+                    But be careful, go over the target score, and you'll be in doo-doo.
                 </p>
             </div>
 
         </div>
-
-        <div class="row">
-            <div class="number-wrap box col-md-3">
-                <h3 class="number">Your Number:</h3>
-            </div>
-        </div>
-
+        
         <div class="row">
 
-            <div class="target-wrap box col-md-3">
-                <h3 class="targetNumber">Target Number: </h3>
-            </div>
-
-            <div class="col-md-5"></div>
+            <div class="col-md-8"></div>
 
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-6  container">
+                    <div class="col-md-6">
                         <img id="poop1" class="button img-thumbnail" src="assets/images/poop_1.png">
                     </div> 
-                    <div class="col-md-6 container">                  
+                    <div class="col-md-6">                  
                         <img id="poop2" class="button img-thumbnail" src="assets/images/poop_2.png">
                     </div> 
                 </div>
@@ -67,20 +75,15 @@
         </div>
 
         <div class="row">
-
-            <div class="score-wrap col-md-3">
-                <h3 class="wins">Wins: </h3>
-                <h3 class="losses">Losses: </h3>
-            </div>
-
-            <div class="col-md-5"></div>
+            
+            <div class="col-md-8"></div>
 
             <div class="col-md-4">
                 <div class="row">                                  
-                    <div class="col-md-6 container">
+                    <div class="col-md-6">
                         <img id="poop3" class="button img-thumbnail" src="assets/images/poop_3.png">
                     </div>
-                    <div class="col-md-6 container">
+                    <div class="col-md-6">
                         <img id="poop4" class="button img-thumbnail" src="assets/images/poop_4.png">
                     </div>
 
@@ -89,8 +92,7 @@
         </div>
  
     </div>
-    <!-- jQuery stuff -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <!-- my JS file -->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
