@@ -5,6 +5,13 @@ var losses = 0;
 var target = 0;
 var yourNum = 0;
 
+var audioWin = document.createElement("audio");
+audioWin.setAttribute("src", "assets/sounds/winSound.mp3");
+
+var audioLose = document.createElement("audio");
+audioLose.setAttribute("src", "assets/sounds/loseSound.mp3");
+
+
 // var poop1 = $("#poop1");
 // var poop2 = $("#poop2");
 // var poop3 = $("#poop3");
@@ -54,10 +61,6 @@ var startGame = function() {
         $("#poop-bag").append(div)
     }
 
-   // ?? display the poop pictures on the page dynamically (they are currently in the html, but I would like to put them in with js??)
-
-//    $("#poop1").html(poop[0].image); -->doesn't appear to work, but images are currently in html, so it could be causing a problem?
-
    //put on html
 
    $("#wins").html("Wins: " + wins);
@@ -72,11 +75,6 @@ var addValues = function(index) {
     $("#number").html("You: " + yourNum);
 }
 
-// // This is only a test.
-// console.log("Target: " + target);
-// console.log(poop[0].value);
-// console.log("Poop1: " + poop[0].value + " | Poop2: " + poop[1].value + " | Poop3: " + poop[2].value + " | Poop4: " + poop[3].value);
-// console.log(getRandom(1, 12));
 
 
  // Need to create a pause before calling start game
@@ -95,8 +93,7 @@ function resetGame() {
         })
       
         startGame();
-    }, 2000);
-    
+    }, 2000);    
     
 }
 
@@ -118,14 +115,16 @@ $("document").ready(function() {
         if (yourNum === target) {
             wins++            
             $("#wins").html("Wins: " + wins);
-            $(".modal-body").html("<h3>You win!</h3>")
+            $(".modal-body").html("<h3>You bagged a win!</h3>")
             $(".modal").modal("show");
-            resetGame()
+            audioWin.play();
+            resetGame();
         }else if (yourNum > target) {
             losses++
             $("#losses").html("Losses: " + losses);
             $(".modal-body").html("<h3>You stepped in it!</h3>");
             $(".modal").modal("show");
+            audioLose.play();
             resetGame()
         }
     })
