@@ -8,6 +8,7 @@ var yourNum = 0;
 var audioWin = document.createElement("audio");
 audioWin.setAttribute("src", "assets/sounds/winSound.mp3");
 
+
 var audioLose = document.createElement("audio");
 audioLose.setAttribute("src", "assets/sounds/loseSound.mp3");
 
